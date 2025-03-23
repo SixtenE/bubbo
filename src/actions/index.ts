@@ -19,7 +19,6 @@ export async function getLists() {
 }
 
 export async function createList(name: string) {
-  await new Promise((resolve) => setTimeout(resolve, 1000))
   const data = await prisma.list.create({
     data: {
       name,

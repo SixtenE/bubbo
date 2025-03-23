@@ -69,6 +69,7 @@ export default function Page() {
           type="submit"
           variant="secondary"
           className="absolute top-16 right-4 w-fit self-end"
+          disabled={form.formState.isSubmitting}
         >
           <CornerDownLeft size={24} />
         </Button>
