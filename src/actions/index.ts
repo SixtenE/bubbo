@@ -7,10 +7,6 @@ const prisma = new PrismaClient()
 
 export async function getLists() {
   const data = await prisma.list.findMany({
-    select: {
-      id: true,
-      name: true,
-    },
     orderBy: {
       createdAt: 'desc',
     },
