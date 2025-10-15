@@ -9,10 +9,6 @@ export const lists = pgTable("lists", {
   title: varchar("title", { length: 255 }).notNull(),
 });
 
-export const listsRelations = relations(lists, ({ many }) => ({
-  items: many(items),
-}));
-
 export const items = pgTable("items", {
   id: text("id")
     .$defaultFn(() => nanoid())
@@ -20,6 +16,10 @@ export const items = pgTable("items", {
   listId: text("list_id").references(() => lists.id, { onDelete: "cascade" }),
   content: text("content").notNull(),
 });
+
+export const listsRelations = relations(lists, ({ many }) => ({
+  items: many(items),
+}));
 
 export const itemsRelations = relations(items, ({ one }) => ({
   list: one(lists, {
