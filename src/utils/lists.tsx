@@ -23,7 +23,6 @@ export const fetchListById = createServerFn({ method: "GET" })
         items: true,
       },
     });
-    console.log(list);
     return list;
   });
 
